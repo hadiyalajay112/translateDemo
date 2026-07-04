@@ -73,39 +73,7 @@ export const appConfig: ApplicationConfig = {
     }),
   ],
 };
-```
 
-Register the languages you support in your root component:
-
-```typescript
-import { Component, inject } from "@angular/core";
-import { TranslateService, TranslatePipe, TranslateDirective } from "@ngx-translate/core";
-
-@Component({
-  selector: "app-root",
-  standalone: true,
-  imports: [TranslatePipe, TranslateDirective],
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
-})
-export class AppComponent {
-  private translate = inject(TranslateService);
-
-  constructor() {
-    this.translate.addLangs(["en", "hi", "gu"]);
-  }
-
-  switchLang(lang: string) {
-    this.translate.use(lang);
-  }
-}
-```
-
-Use translations in templates with the `translate` pipe or directive:
-
-```html
-<h1>{{ 'HOME.TITLE' | translate }}</h1>
-<p translate>HOME.DESCRIPTION</p>
 ```
 
 ## Countries Data
@@ -140,20 +108,6 @@ ng serve
 
 ```bash
 ionic build
-```
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── components/
-│   │   └── countries-grid/     # Grid displaying country cards
-│   ├── models/
-│   │   └── country.model.ts    # Country interface
-│   └── app.config.ts           # ngx-translate + app providers
-└── assets/
-    └── i18n/                   # Translation JSON files (en, hi, gu)
 ```
 
 ## License
