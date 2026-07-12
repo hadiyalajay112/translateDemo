@@ -14,19 +14,21 @@
     </ion-item>
   </ion-list>
 
-  @for (country of countriesList; track country.name) {
-  <div class="country-card">
-    <div class="country-flag-wrapper">
-      <img
-        [src]="country.countryImage"
-        [alt]="country.name"
-        class="country-flag"
-        loading="lazy"
-      />
+  @if (countriesList.length){ 
+   @for (country of countriesList; track country.name) {
+    <div class="country-card">
+      <div class="country-flag-wrapper">
+        <img
+          [src]="country.countryImage"
+          [alt]="country.name"
+          class="country-flag"
+          loading="lazy"
+        />
+      </div>
+      <p class="country-name">
+        {{ 'countries.' + slugify(country.name) | translate }}
+      </p>
     </div>
-    <p class="country-name">
-      {{ 'countries.' + slugify(country.name) | translate }}
-    </p>
-  </div>
+    } 
   }
 </ion-content>

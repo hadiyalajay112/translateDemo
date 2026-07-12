@@ -34,7 +34,6 @@ export class FolderPage implements OnInit {
 
   getList() {
     this.countriesList = this.commonDataService.getCountries();
-    console.log(this.countriesList);
   }
 
   changeLan(event: any) {
