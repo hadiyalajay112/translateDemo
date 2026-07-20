@@ -23,10 +23,10 @@ import { CommonDataService } from "../core/services/common-data-service/common-d
   ],
 })
 export class FolderPage implements OnInit {
-  currentLan = "en";
+  currentLan: string = "en";
+  countriesList: any[] = [];
   private translateService = inject(TranslateService);
   private commonDataService = inject(CommonDataService);
-  countriesList: any[] = [];
 
   ngOnInit() {
     this.getList();
